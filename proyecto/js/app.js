@@ -1,8 +1,33 @@
-// Declaracion de variables
-const totalIngresos = () => 3700;
-const totalEgresos = () => 1300;
+// Arreglos de datos
+const ingresos = [
+    new Ingreso('Salario', 20000),
+    new Ingreso('Ventaauto', 50000)
+];
 
-//funcion formato Moneda
+const egresos = [
+    new Egreso('Renta', 4000),
+    new Egreso('Ropa', 800)
+];
+
+
+// Declaracion de variables
+const totalIngresos = () => {
+    let totalIngreso = 0;
+    for (let ingreso of ingresos) {
+        totalIngreso += ingreso.valor;
+    }
+    return totalIngreso;
+};
+
+const totalEgresos = () => {
+    let totalEgreso = 0;
+    for (let egreso of egresos) {
+        totalEgreso += egreso.valor;
+    }
+    return totalEgreso;
+};
+
+// Formato 
 const formatoMoneda = (valor) => {
     return valor.toLocaleString('es-MX', {
         style: 'currency',
@@ -11,7 +36,6 @@ const formatoMoneda = (valor) => {
     });
 };
 
-//funcion formato Porcentaje
 const formatoPorcentaje = (valor) => {
     return valor.toLocaleString('es-MX', {
         style: 'percent',
@@ -19,11 +43,12 @@ const formatoPorcentaje = (valor) => {
     });
 };
 
-// Funcion Cabecero
+// Cabecero
 const cargarCabecero = () => {
     let presupuesto = totalIngresos() - totalEgresos();
     let porcentajeEgreso = totalEgresos() / totalIngresos();
-    console.log(presupuesto, porcentajeEgreso);
+    //esta linea solo se requiere para testing 
+    //console.log(presupuesto, porcentajeEgreso);
 
     /**resultados anteriores sin formato de $ y % 
     console.log(presupuesto);
