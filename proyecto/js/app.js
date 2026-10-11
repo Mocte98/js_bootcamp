@@ -113,12 +113,20 @@ const cargarIngresos = () => {
     document.getElementById('lista-ingresos').innerHTML = ingresosHTML;
 };
 
+// Eliminar registro
 const eliminarEgreso = (id) => {
     let indiceEliminar = egresos.findIndex(egreso => egreso.id === id);
     egresos.splice(indiceEliminar, 1);
     cargarCabecero();
     cargarEgresos();
 }
+
+const eliminarIngreso = (id) => {
+    let indiceEliminar = ingresos.findIndex(ingreso => ingreso.id === id);
+    ingresos.splice(indiceEliminar, 1);
+    cargarCabecero();
+    cargarIngresos();
+};
 
 const agregarDato = () => {
     let forma = document.forms['forma'];
